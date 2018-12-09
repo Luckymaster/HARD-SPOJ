@@ -3,7 +3,7 @@
 using namespace std;
 typedef long long int int64;
 typedef unsigned long long  ll;
-//MY NEW SQRT SOLUTION
+
 
 
 #define MOD 1000000007
