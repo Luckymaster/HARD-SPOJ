@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ull long long
-vector<ull>smprime[10000005];
-vector<ull>primes;
+vector<bool>smprime[10000005];
+vector<int>primes;
 void getPrimes(int lmt){
 	int i,j;
 	vector<bool>prime(lmt+1,true);
@@ -20,13 +20,13 @@ void etfs(ull st, ull en){
 	vector<ull>res;
 	for(ull i=st;i<=en;i++)res.push_back(i);
 	for(ull i=0;i<rng;i++){
-		for (ull j = ((st+(primes[i]-1))/primes[i])*primes[i]; j <= en; j += primes[i]){
-			if(res[j-st] < primes[i])continue;
-			smprime[j-st].push_back(primes[i]);
+		for (ull j = ((st+(primes[i]-1))/primes[i])*primes[i] *1LL; j <= en; j += primes[i]){
+			if(res[j-st] < primes[i] || smprime[j-st].size() > 2)continue;
+			smprime[j-st].push_back(1);
 			res[j-st] /= primes[i];
 			while (res[j-st] > 1 && res[j-st] % primes[i] == 0) {
 				res[j-st] /= primes[i]; 
-				smprime[j-st].push_back(primes[i]);
+				smprime[j-st].push_back(1);
 			}
 			
 		}
